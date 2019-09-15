@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+
+
+
+</h:head>
+<ui:composition template="../template.xhtml">
+
+	<!--     LINKS   -->
+    <ui:define name="links">  
+    	<ui:include src="menu.xhtml"/>    
+    </ui:define>
+    <!-- ............ -->
+    
+    <!--    MENSAGEM   -->
+    <ui:define name="welcome"><h:outputLabel value="#{usuarioController.mensagem}"/></ui:define>
+    <!-- ............ -->
+    <ui:define name="final">
+
+
+        <div class="container">
+            <div class="section">
+
+
+                <!--   Icon Section   -->
+                <div class="row black-text">
+
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <h2 class="center black-text"><i class="material-icons medium">add</i></h2>
+                            <h5 class="center">Solicitar</h5>
+
+                            <p class="light">Solicite refeições para os alunos.</p>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <h2 class="center black-text"><i class="material-icons medium">assignment</i></h2>
+                            <h5 class="center">Acompanhar</h5>
+
+                            <p class="light">Ambiente de acompanhamento às solicitações realizadas.</p>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <h2 class="center black-text"><i class="material-icons medium">face</i></h2>
+                            <h5 class="center">Perfil</h5>
+
+                            <p class="light">Edição de dados e desativação de conta.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </ui:define>
+
+
+
+</ui:composition>
+</html>

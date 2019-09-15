@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+
+
+
+</h:head>
+<ui:composition template="../template.xhtml">
+  
+	<!--     LINKS   -->
+    <ui:define name="links">  
+    	<ui:include src="menu.xhtml"/>    
+    </ui:define>
+    <!-- ............ -->
+    
+    <!--    MENSAGEM   -->
+    <ui:define name="welcome"><h:outputLabel value="#{usuarioController.mensagem}"/></ui:define>
+    <!-- ............ -->
+    
+    <ui:define name="top">
+        <h4>Acompanhar refeições</h4>
+        <div class="row">
+
+            <li class="collection-item">
+                <h:form prependId="false" id="refeicao">
+						<div class="row">
+							<div class="input-field col s6">
+								<h:inputText 
+									id="refeicao"
+                                                                        value="#{refeicaoController.nome}"
+									placeholder="Informe o nome da Refeição"/> 
+							</div>
+
+							<div class="input-field col s3">							
+								<h:inputText 
+									id="horaInicio"
+                                                                        value="#{refeicaoController.horaInicio}"
+									placeholder="Informe o horário de Início"/> 
+							</div>
+							
+							<dir class="col s3">
+							 	<h:inputText 
+									id="horaTermino"
+                                                                        value="#{refeicaoController.horaTermino}"
+									placeholder="Informe o horário de Término"/> 
+							</dir>
+                                                    
+                                                    <dir class="col s3">
+							 	<h:commandLink
+                                                                    action="#{refeicaoController.atualizarRefeicao()}"
+							 		class="btn-floating btn-small waves-effect waves-light teal">
+							 		<i class="material-icons">edit</i>
+							 	</h:commandLink>
+								
+							</dir>
+                                                    <dir class="col s3">
+							 	<h:commandLink
+                                                                    action="#{refeicaoController.removerRefeicao()}"
+							 		class="btn-floating btn-small waves-effect waves-light teal">
+							 		<i class="material-icons">edit</i>
+							 	</h:commandLink>
+								
+							</dir>
+
+						</div>
+
+						</h:form>
+
+					</li>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

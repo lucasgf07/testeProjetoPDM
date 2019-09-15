@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+
+
+
+</h:head>
+<ui:composition template="../template.xhtml">
+  
+	<!--     LINKS   -->
+    <ui:define name="links">  
+    	<ui:include src="menu.xhtml"/>    
+    </ui:define>
+    <!-- ............ -->
+    
+    <!--    MENSAGEM   -->
+    <ui:define name="welcome"><h:outputLabel value="#{usuarioController.mensagem}"/></ui:define>
+    <!-- ............ -->
+    
+    <ui:define name="top">
+        <h4>Listagem de Professores</h4>
+        <div class="row">
+
+            <!--<h:form prependId="false">-->
+                <ul class="collection with-header">
+                    <li class="collection-item">
+                        <h:form prependId="false">
+                            <div class="row">
+                                <div class="input-field col s3">
+                                    <h:inputText value="#{gestaoProfessorController.matricula}"/>
+                                    <label>Buscar pela matricula</label>
+                                </div>
+
+                                <dir class="col s3">
+                                    <h:commandLink
+                                            action="#{gestaoProfessorController.buscar()}"
+                                            class="btn-floating btn-small waves-effect waves-light teal">
+                                        <i class="material-icons">search</i>
+                                    </h:commandLink>
+                                </dir>
+                            </div>
+                        </h:form>
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+
+                            <div class="col l3"><b>Matrícula</b></div>
+                            <div class="col l6"><b>Nome</b></div>
+                            <div class="col l3"><b>Telefone</b></div>
+                        </div>
+                    </li>
+                    <ui:repeat var="professor" value="#{gestaoProfessorController.itens}">
+                        <li class="collection-item">
+                            <div class="row">
+                                <div class="col l3">
+                                    <h:outputText value="#{professor.matricula}"></h:outputText>
+                                </div>
+                                <div class="col l6">
+                                    <h:outputText value="#{professor.pessoa.nome}"></h:outputText>
+                                </div>
+                                <div class="col l3">
+                                    <h:outputText value="#{professor.pessoa.telefone}"></h:outputText>
+                                </div>
+
+                            </div>
+
+                        </li>
+
+                    </ui:repeat>
+                    <li class="collection-item">
+                        <div class="row">
+                            <ui:include  src="../includes/paginacao.xhtml">
+                                <ui:param value="#{gestaoProfessorController}" name="controller"/>
+                            </ui:include>
+                        </div>
+                    </li>
+
+                    <li class="collection-item">
+                        <div class="row">
+                            <p>Total de professores encontrados: <h:outputText value="#{gestaoProfessorController.quantidadeItens}"/></p>
+                        </div>
+                    </li>
+                </ul>
+            <!--</h:form>-->
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
+
